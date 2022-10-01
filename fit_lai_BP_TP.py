@@ -24,9 +24,9 @@ image = numpy.zeros((3600, 7200, 37), dtype='float32')
 for ff in ffile_list:
     if str(ff).split('.')[-1] == 'tif':
         globe_data = gdal.Open(os.path.join(filepath, ff))
-        im_width0 = globe_data.RasterXSize  # 栅格矩阵的列数
-        im_height0 = globe_data.RasterYSize  # 栅格矩阵的行数
-        image[:, :, ffile_list.index(ff)] = globe_data.ReadAsArray(0, 0, im_width0, im_height0)  # 获取esvf数据
+        im_width0 = globe_data.RasterXSize  
+        im_height0 = globe_data.RasterYSize  
+        image[:, :, ffile_list.index(ff)] = globe_data.ReadAsArray(0, 0, im_width0, im_height0) 
     else:
         continue
 outpath = r'/result'
